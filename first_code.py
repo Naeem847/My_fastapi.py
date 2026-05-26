@@ -37,5 +37,5 @@ def process_text(request: textRequest):
     # return textResponse(original_text=text, text_length=len(text))
 if __name__ == "__main__":
     # start the server using uvicorn
-    uvicorn.run("my_firstproject:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("first_code:app", host="127.0.0.1", port=8000, reload=True)
 
