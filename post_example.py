@@ -35,3 +35,29 @@ def create_item(item: Item):
 if __name__ == "__main__":
  import uvicorn
  uvicorn.run(app, host="127.0.0.1", port=8000)
+
+# #2 Example Code for PUT Method:
+#  @app.put("/items/{item_id}")
+
+#  def update_item(item_id: int, item: Item):
+
+#     """
+
+#     This endpoint handles PUT requests to update an existing item.
+
+#     It uses a path parameter `item_id` to identify the item.
+
+#     It expects the updated item data in the request body.
+
+#     If the item exists, it updates it completely; otherwise, returns a 404 error.
+
+#     """
+
+#     if item_id not in items_db:
+#         raise HTTPException(status_code=404, detail="Item not found")
+
+    
+
+#     items_db[item_id] = item.dict()
+
+#     return {"item_id": item_id, **item.model_dump()}
