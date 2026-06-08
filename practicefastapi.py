@@ -1,16 +1,29 @@
+# from fastapi import FastAPI
+
+# app = FastAPI()
+
+# @app.get("/numbers")
+
+# def get_numbers():
+
+#     numbers=[]
+
+#     for i in range(1,6):
+
+#         numbers.append(i)
+    
+#     return {"numbers":numbers}    
+
+# 1   2   3   4   5   5
 from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/numbers")
+@app.get("/table/{num}")
+def multiplication_table(num: int):
+    table = []
 
-def get_numbers():
+    for i in range(1, 11):
+        table.append(f"{num} x {i} = {num * i}")
 
-    numbers=[]
-
-    for i in range(1,6):
-
-        numbers.append(i)
-    
-    return {"numbers":numbers}    
-
+    return {"table": table}
