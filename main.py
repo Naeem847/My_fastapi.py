@@ -30,3 +30,6 @@ def generate_numbers(n: int):
         numbers.append(i)
 
     return {"numbers": numbers}
+
+
+    
