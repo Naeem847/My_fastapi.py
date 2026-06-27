@@ -56,3 +56,20 @@ def home():
 @app.get("/about")
 def about():
     return {"message": "This is a FastAPI application."}
+  
+    # examples of todo app
+    from fastapi import FastAPI
+
+app = FastAPI()
+
+tasks = []
+
+@app.post("/tasks")
+def add_task(task: str):
+    tasks.append(task)
+    return {"message": "Task added"}
+
+@app.get("/tasks")
+def get_tasks():
+    return tasks
+
