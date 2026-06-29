@@ -40,3 +40,5 @@ class TodoGetOut(Baseout):
 
 def fetch_todos():
     return TodoGetOut(todos=db, msg="Todos fetched successfully")
+
+    
