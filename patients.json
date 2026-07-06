@@ -1,57 +1,9 @@
-[
-  {
-    "id": 1,
-    "name": "Ali Khan",
-    "age": 28,
-    "gender": "Male",
-    "blood_group": "B+",
-    "phone": "+92-300-1234567",
-    "address": "Islamabad, Pakistan",
-    "disease": "Fever",
-    "admitted": false
-  },
-  {
-    "id": 2,
-    "name": "Ayesha Ahmed",
-    "age": 35,
-    "gender": "Female",
-    "blood_group": "O+",
-    "phone": "+92-301-2345678",
-    "address": "Rawalpindi, Pakistan",
-    "disease": "Diabetes",
-    "admitted": true
-  },
-  {
-    "id": 3,
-    "name": "Hassan Raza",
-    "age": 42,
-    "gender": "Male",
-    "blood_group": "A-",
-    "phone": "+92-302-3456789",
-    "address": "Lahore, Pakistan",
-    "disease": "Hypertension",
-    "admitted": true
-  },
-  {
-    "id": 4,
-    "name": "Fatima Noor",
-    "age": 19,
-    "gender": "Female",
-    "blood_group": "AB+",
-    "phone": "+92-303-4567890",
-    "address": "Karachi, Pakistan",
-    "disease": "Asthma",
-    "admitted": false
-  },
-  {
-    "id": 5,
-    "name": "Usman Tariq",
-    "age": 50,
-    "gender": "Male",
-    "blood_group": "O-",
-    "phone": "+92-304-5678901",
-    "address": "Peshawar, Pakistan",
-    "disease": "Heart Disease",
-    "admitted": true
-  }
-]
+{"P001": {"name": "Ali Khan","city": "Islamabad","age":19, "disease": "Fever","height": 1.70, "weight": 70, "bmi": 24.2, "admitted": true}, 
+"P002": {"name": "Ayesha Ahmed", "age": 35, "city": "Rawalpindi", "disease": "Diabetes", "height": 1.65, "weight": 80, "bmi": 29.4, "admitted": true},
+"P003": {"name": "Hassan Raza", "age": 42, "city": "Lahore", "disease": "Hypertension", "height": 1.75, "weight": 90, "bmi": 29.1, "admitted": true},
+"P004": {"name": "Fatima Noor", "age": 19, "city": "Karachi", "disease": "Asthma", "height": 1.60, "weight": 55, "bmi": 21.5, "admitted": true},
+"P005": {"name": "Usman Tariq", "age": 50, "city": "Peshawar", "disease": "Heart Disease", "height": 1.70, "weight": 85, "bmi": 29.4, "admitted": true}
+}
+
+
+
