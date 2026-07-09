@@ -1,9 +1,1 @@
-{"P001": {"name": "Ali Khan","city": "Islamabad","age":19, "disease": "Fever","height": 1.70, "weight": 70, "bmi": 24.2, "admitted": true}, 
-"P002": {"name": "Ayesha Ahmed", "age": 35, "city": "Rawalpindi", "disease": "Diabetes", "height": 1.65, "weight": 80, "bmi": 29.4, "admitted": true},
-"P003": {"name": "Hassan Raza", "age": 42, "city": "Lahore", "disease": "Hypertension", "height": 1.75, "weight": 90, "bmi": 29.1, "admitted": true},
-"P004": {"name": "Fatima Noor", "age": 19, "city": "Karachi", "disease": "Asthma", "height": 1.60, "weight": 55, "bmi": 21.5, "admitted": true},
-"P005": {"name": "Usman Tariq", "age": 50, "city": "Peshawar", "disease": "Heart Disease", "height": 1.70, "weight": 85, "bmi": 29.4, "admitted": true}
-}
-
-
-
+{"P001": {"name": "Ali Khan", "city": "Islamabad", "age": 19, "disease": "Fever", "height": 1.7, "weight": 70, "bmi": 24.2, "verdict": "obese", "admitted": true}, "P002": {"name": "Ayesha Ahmed", "age": 35, "city": "Rawalpindi", "disease": "Diabetes", "height": 1.65, "weight": 80, "bmi": 29.4, "verdict": "obese", "admitted": true}, "P003": {"name": "Hassan Raza", "age": 42, "city": "Lahore", "disease": "Hypertension", "height": 1.75, "weight": 90, "bmi": 29.1, "verdict": "obese", "admitted": true}, "P004": {"name": "Fatima Noor", "age": 19, "city": "Karachi", "disease": "Asthma", "height": 1.6, "weight": 55, "bmi": 21.5, "verdict": "normal", "admitted": true}, "P005": {"name": "Usman Tariq", "age": 50, "city": "Peshawar", "disease": "Heart Disease", "height": 1.7, "weight": 85, "bmi": 29.4, "verdict": "obese", "admitted": true}, "P006": {"name": "naeem", "city": "isb", "age": 22, "gender": "Male", "height": 1.0, "weight": 1.0, "bmi": 1.0, "verdict": "underweight"}}
