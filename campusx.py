@@ -4,14 +4,14 @@ from fastapi import FastAPI, Path, HTTPException, Query
 from fastapi.responses import JSONResponse
 
 
-from pydantic import BaseModel ,Field ,computed_field
+from pydanticc import BaseModel ,Field ,computed_field
 
 from typing import Annotated,List, Optional ,Literal
 import json
 # create a bject of fastapi
 
 app=FastAPI()
-
+print("patient management system API initialized")
 class patient(BaseModel):
     id: Annotated[str, Field(..., description='ID of the patient in the DB', example='P001')]
     name: Annotated[str, Field(..., description='Name of the patient')]

@@ -1,6 +1,6 @@
 from uuid import UUID,uuid4
 from fastapi import FastAPI
-from pydantic import BaseModel,Field
+from pydanticc import BaseModel,Field
 # create a FastAPI App 
 app = FastAPI()
 

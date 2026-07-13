@@ -74,7 +74,7 @@ def get_tasks():
     return tasks
 
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydanticc import BaseModel
 
 app = FastAPI()
 

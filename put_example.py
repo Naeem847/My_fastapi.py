@@ -1,6 +1,6 @@
 # post methood is used to create a new resource on the server, while the put method is used to update an existing resource.
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydanticc import BaseModel
 from typing import Optional
 import uvicorn
 

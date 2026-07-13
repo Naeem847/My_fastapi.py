@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 # from flask import app
-from pydantic import BaseModel
+from pydanticc import BaseModel
 from typing import Optional
 import uvicorn
 
