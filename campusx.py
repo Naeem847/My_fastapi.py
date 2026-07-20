@@ -4,7 +4,7 @@ from fastapi import FastAPI, Path, HTTPException, Query
 from fastapi.responses import JSONResponse
 
 
-from pydanticc import BaseModel ,Field ,computed_field
+from pydantic import BaseModel ,Field ,computed_field
 
 from typing import Annotated,List, Optional ,Literal
 import json
