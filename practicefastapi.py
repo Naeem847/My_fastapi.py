@@ -129,3 +129,44 @@ def delete_todo(todo_id: int):
             return {"message": "Todo deleted"}
     return {"message": "Todo not found"}
 
+
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="My First FastAPI Calculator",
+    description="A simple FastAPI project with calculator operations",
+    version="1.0.0"
+)
+
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to FastAPI Calculator"}
+
+
+@app.get("/hello/{name}")
+def hello(name: str):
+    return {"message": f"Hello {name}"}
+
+
+@app.get("/add")
+def add(a: float, b: float):
+    return {"result": a + b}
+
+
+@app.get("/subtract")
+def subtract(a: float, b: float):
+    return {"result": a - b}
+
+
+@app.get("/multiply")
+def multiply(a: float, b: float):
+    return {"result": a * b}
+
+
+@app.get("/divide")
+def divide(a: float, b: float):
+    if b == 0:
+        return {"error": "Cannot divide by zero"}
+
+    return {"result": a / b}
