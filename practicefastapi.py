@@ -45,6 +45,7 @@ def add_numbers(a: int, b: int):
     }
 
 # practicefastapi.py
+
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -130,6 +131,7 @@ def delete_todo(todo_id: int):
     return {"message": "Todo not found"}
 
 
+
 from fastapi import FastAPI
 
 app = FastAPI(
@@ -137,7 +139,6 @@ app = FastAPI(
     description="A simple FastAPI project with calculator operations",
     version="1.0.0"
 )
-
 
 @app.get("/")
 def home():
@@ -170,3 +171,143 @@ def divide(a: float, b: float):
         return {"error": "Cannot divide by zero"}
 
     return {"result": a / b}
+
+# This version adds a simple calculator history using an in-memory list.
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI(
+    title="FastAPI Calculator",
+    description="A simple calculator API with CRUD operations",
+    version="2.0.0"
+)
+
+
+
+class Calculation(BaseModel):
+    a: float
+    b: float
+
+
+# Temporary database
+calculations = []
+
+
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to FastAPI Calculator"}
+
+
+@app.get("/hello/{name}")
+def hello(name: str):
+    return {"message": f"Hello {name}"}
+
+
+
+@app.get("/add")
+def add(a: float, b: float):
+    return {"result": a + b}
+
+
+@app.get("/subtract")
+def subtract(a: float, b: float):
+    return {"result": a - b}
+
+
+@app.get("/multiply")
+def multiply(a: float, b: float):
+    return {"result": a * b}
+
+
+@app.get("/divide")
+def divide(a: float, b: float):
+
+    if b == 0:
+        raise HTTPException(
+            status_code=400,
+            detail="Cannot divide by zero"
+        )
+
+    return {"result": a / b}
+
+
+
+@app.post("/calculations")
+def create_calculation(calculation: Calculation):
+
+    result = calculation.a + calculation.b
+
+    new_calculation = {
+        "id": len(calculations) + 1,
+        "a": calculation.a,
+        "b": calculation.b,
+        "result": result
+    }
+
+    calculations.append(new_calculation)
+
+    return new_calculation
+
+
+
+@app.get("/calculations")
+def get_calculations():
+    return calculations
+
+
+@app.get("/calculations/{calculation_id}")
+def get_calculation(calculation_id: int):
+
+    for calculation in calculations:
+
+        if calculation["id"] == calculation_id:
+            return calculation
+
+    raise HTTPException(
+        status_code=404,
+        detail="Calculation not found"
+    )
+
+
+@app.put("/calculations/{calculation_id}")
+def update_calculation(
+    calculation_id: int,
+    calculation: Calculation
+):
+
+    for item in calculations:
+
+        if item["id"] == calculation_id:
+
+            item["a"] = calculation.a
+            item["b"] = calculation.b
+            item["result"] = calculation.a + calculation.b
+
+            return item
+
+    raise HTTPException(
+        status_code=404,
+        detail="Calculation not found"
+    )
+
+
+
+@app.delete("/calculations/{calculation_id}")
+def delete_calculation(calculation_id: int):
+
+    for calculation in calculations:
+
+        if calculation["id"] == calculation_id:
+
+            calculations.remove(calculation)
+
+            return {
+                "message": "Calculation deleted successfully"
+            }
+
+    raise HTTPException(
+        status_code=404,
+        detail="Calculation not found"
+    )
