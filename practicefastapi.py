@@ -123,6 +123,7 @@ def update_todo(todo_id: int, updated_todo: Todo):
 
 # Delete a task
 @app.delete("/todos/{todo_id}")
+
 def delete_todo(todo_id: int):
     for i, todo in enumerate(todos):
         if todo.id == todo_id:
@@ -182,8 +183,6 @@ app = FastAPI(
     description="A simple calculator API with CRUD operations",
     version="2.0.0"
 )
-
-
 
 class Calculation(BaseModel):
     a: float
@@ -308,6 +307,16 @@ def delete_calculation(calculation_id: int):
             }
 
     raise HTTPException(
+
         status_code=404,
+
         detail="Calculation not found"
     )
+
+# practise fastapi with telusko:
+from fastapi import FastAPI
+app = FastAPI()
+@app.get("/")
+def greet():
+    return "Hello, welcome to FastAPI practice with Telusko!"
+
