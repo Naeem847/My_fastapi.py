@@ -315,8 +315,19 @@ def delete_calculation(calculation_id: int):
 
 # practise fastapi with telusko:
 from fastapi import FastAPI
+from models import product
 app = FastAPI()
 @app.get("/")
 def greet():
     return "Hello, welcome to FastAPI practice with Telusko!"
+
+products=[
+   product(id=1, name="Product 1", description="Budget-phone", price=99, quantity=10),
+   product(id=2, name="laptop", description="gaming laptop", price=999, quantity=50),
+   product(id=3, name="headphones", description="wireless headphones", price=199, quantity=100),
+   product(id=4, name="smartwatch", description="fitness smartwatch", price=149, quantity=75),
+]    
+@app.get("/products")
+def get_products():
+    return products
 
