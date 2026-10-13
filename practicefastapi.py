@@ -331,3 +331,31 @@ products=[
 def get_products():
     return products
 
+@app.get("/product/{id}")
+def get_product_by_id(id: int):
+    for product in products:
+        if product.id==id:
+            return product
+        else:
+            return {"message": "Product not found"}
+@app.post("/product")
+def add_product(product: product):
+    products.append(product)
+    return {"message": "Product added successfully", "product": product}       
+
+@app.put("/product/{id}")
+def update_product(id: int, updated_product: product):
+    for i in range(len(products)):
+        if products[i].id==id:
+            products[i]=updated_product
+            return {"message": "Product updated successfully", "product": updated_product}
+
+    return {"message": "Product not found"}
+
+@app.delete("/product/{id}")
+def delete_product(id: int):
+    for i in range(len(products)):
+        if products[i].id==id:
+            products.pop(i)
+            return {"message": "Product deleted successfully"}
+    return {"message": "Product not found"}
