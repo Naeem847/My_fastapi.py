@@ -359,3 +359,21 @@ def delete_product(id: int):
             products.pop(i)
             return {"message": "Product deleted successfully"}
     return {"message": "Product not found"}
+
+    # practice fastapi
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to my first API"}
+
+@app.get("/about")
+def about():
+    return {"name": "Naeem", "skill": "Python"}
+
+@app.get("/contact")
+def contact():
+    return {"email": "naeem@example.com"}
