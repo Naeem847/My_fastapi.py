@@ -377,3 +377,109 @@ def about():
 @app.get("/contact")
 def contact():
     return {"email": "naeem@example.com"}
+
+
+# today practice code fastapi
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI(
+    title="My Practice API",
+    description="Learning FastAPI concepts",
+    version="1.0"
+)
+
+# Temporary database (in-memory)
+students = [
+    {"id": 1, "name": "Naeem", "skill": "Python", "age": 22},
+    {"id": 2, "name": "Ali", "skill": "Java", "age": 23}
+]
+
+
+# Request body model using Pydantic
+class Student(BaseModel):
+    name: str
+    skill: str
+    age: int
+
+
+# 1. GET: Home endpoint
+@app.get("/")
+def home():
+    return {"message": "Welcome to my first API"}
+
+
+# 2. GET: About endpoint
+@app.get("/about")
+def about():
+    return {"name": "Naeem", "skill": "Python"}
+
+
+# 3. GET: Contact endpoint
+@app.get("/contact")
+def contact():
+    return {"email": "naeem@example.com"}
+
+
+# 4. GET: Path parameter
+@app.get("/student/{student_id}")
+def get_student(student_id: int):
+    for student in students:
+        if student["id"] == student_id:
+            return student
+
+    raise HTTPException(status_code=404, detail="Student not found")
+
+
+# 5. GET: Query parameter
+@app.get("/search")
+def search_student(skill: str):
+    results = [
+        student for student in students
+        if student["skill"].lower() == skill.lower()
+    ]
+    return {"results": results}
+
+
+# 6. GET: Display all students
+@app.get("/students")
+def get_students():
+    return {"students": students}
+
+
+# 7. POST: Add a new student
+@app.post("/students")
+def add_student(student: Student):
+    new_student = {
+        "id": max([s["id"] for s in students], default=0) + 1,
+        **student.model_dump()
+    }
+
+    students.append(new_student)
+    return {"message": "Student added successfully", "data": new_student}
+
+
+# 8. PUT: Update student information
+@app.put("/students/{student_id}")
+def update_student(student_id: int, student: Student):
+    for index, existing in enumerate(students):
+        if existing["id"] == student_id:
+            students[index] = {
+                "id": student_id,
+                **student.model_dump()
+            }
+            return {"message": "Student updated", "data": students[index]}
+
+    raise HTTPException(status_code=404, detail="Student not found")
+
+
+# 9. DELETE: Remove a student
+@app.delete("/students/{student_id}")
+def delete_student(student_id: int):
+    for student in students:
+        if student["id"] == student_id:
+            students.remove(student)
+            return {"message": "Student deleted successfully"}
+
+    raise HTTPException(status_code=404, detail="Student not found")
